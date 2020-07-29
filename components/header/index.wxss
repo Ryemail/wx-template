@@ -1,0 +1,22 @@
+/* components/header/index.wxss */
+.ui-header {
+  overflow: auto;
+  position: relative;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.ui-header .title {
+  text-align: center;
+  position: absolute;
+  margin: 0 auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.left {
+  position: absolute;
+  left: 0;
+  padding: 0 20rpx;
+}

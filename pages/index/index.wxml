@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+	<ui-header title="{{ title }}" />
+
+	<view class="flex-1">
+		<view wx:for="{{ 10 }}" wx:key="key">{{ item }}</view>
+		<van-button type="primary">按钮</van-button>
+	</view>
+
+</view>
