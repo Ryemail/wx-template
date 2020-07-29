@@ -17,6 +17,10 @@ Component({
     color: {
       type: String,
       value: "#366FF5"
+    },
+    type:{
+      type:String,
+      value:'back'
     }
   },
 

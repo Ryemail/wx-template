@@ -11,7 +11,6 @@ Page({
   },
   
   onLoad: function () {
-      // console.log(__wxConfig,wx.env.USER_DATA_PATH)
+      console.log(__wxConfig)
   },
-  
 })

@@ -2,10 +2,13 @@
 	<view class="ui-header" style="height:{{height}}px;padding-top:{{ capsule.top }}px;background-color:{{ color }}">
 
 		<!-- left -->
-		<view class="left" style="{{ style }}" bindtap="actionBack">返回</view>
+		<view wx:if="{{ type==='back' }}" class="left" style="{{ style }}" bindtap="actionBack">
+			<van-icon name="arrow-left" color="white" size="16px" />
+			<view class="back-text">首页</view>
+		</view>
 
 		<!-- title -->
-		<view class="title" style="{{ style }}{{ titleStyle }}">
+		<view wx:if="{{ title }}" class="title" style="{{ style }}{{ titleStyle }}">
 			{{ title }}
 		</view>
 	</view>

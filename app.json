@@ -13,7 +13,8 @@
   
   "usingComponents": {
     "ui-header": "/components/header/index",
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-icon": "@vant/weapp/icon/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
