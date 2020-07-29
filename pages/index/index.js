@@ -5,7 +5,7 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
-    title:'注册/个人信息修改',
+    title:'个人信息修改',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },

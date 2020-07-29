@@ -1,15 +1,23 @@
 <van-sticky>
-	<view class="ui-header" style="height:{{height}}px;padding-top:{{ capsule.top }}px;background-color:{{ color }}">
+	<view class="ui-header" style="height:{{height}}px;padding-top:{{ statusBarHeight }}px;background-color:{{ color }}">
 
-		<!-- left -->
-		<view wx:if="{{ type==='back' }}" class="left" style="{{ style }}" bindtap="actionBack">
-			<van-icon name="arrow-left" color="white" size="16px" />
-			<view class="back-text">首页</view>
+		<!-- left back 模式 -->
+		<view wx:if="{{ type === 'back' }}" class="left" style="{{ style }}">
+			<van-icon name="arrow-left" color="white" size="16px" style="{{ iconStyle }}" bindtap="actionBack" />
+			<view wx:if="{{ !ios }}" class="back-text">{{ title }}</view>
+		</view>
+		<!-- left capsule 模式 -->
+		<view wx:if="{{ type === 'capsule' }}" class="left capsule van-hairline--surround" style="height:{{capsule.height}}px;">
+			<van-icon name="arrow-left"  size="16px" style="{{ iconStyle }}" bindtap="actionBack" class="van-hairline--right" />
+			<van-icon name="wap-home-o"  size="16px" style="{{ iconStyle }}" bindtap="actionBack" />
 		</view>
 
 		<!-- title -->
-		<view wx:if="{{ title }}" class="title" style="{{ style }}{{ titleStyle }}">
-			{{ title }}
-		</view>
+		<block wx:if="{{ ios || type === 'capsule'}}">
+			<view wx:if="{{ title }}" class="title" style="{{ style }}{{ titleStyle }}">
+				{{ title }}
+			</view>
+		</block>
+
 	</view>
 </van-sticky>

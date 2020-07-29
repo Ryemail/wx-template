@@ -12,15 +12,15 @@ Component({
   properties: {
     title: {
       type: String,
-      value: "T"
+      value: ""
     },
     color: {
       type: String,
       value: "#366FF5"
     },
-    type:{
-      type:String,
-      value:'back'
+    type: {
+      type: String,
+      value: 'capsule' //back
     }
   },
 
@@ -32,7 +32,9 @@ Component({
     capsule: {},
     statusBarHeight: 0,
     style: "",
-    titleStyle: ""
+    ios: false, // 是否ios
+    titleStyle: "",
+    iconStyle: ''
   },
   attached() {
     const capsule = wx.getMenuButtonBoundingClientRect();
@@ -40,18 +42,21 @@ Component({
     wx.getSystemInfo({
       success: ({
         statusBarHeight,
-        windowWidth
+        windowWidth,
+        platform
       }) => {
 
         const height = statusBarHeight + capsule.height + (capsule.top - statusBarHeight) * 2,
           left = windowWidth - capsule.right + capsule.width;
-
+          console.log(capsule,(capsule.bottom+capsule.top)-(statusBarHeight*2),height);
         this.setData({
           height,
           statusBarHeight,
           capsule,
-          style: `height:${ capsule.height }px;line-height:${ capsule.height }px;`,
-          titleStyle: `left:${left}px;right:${left}px;`
+          style: `height:${capsule.height}px;line-height:${capsule.height}px;`,
+          titleStyle: `left:${left}px;right:${left}px;`,
+          ios: platform === 'ios',
+          iconStyle: `width:${capsule.height}px;`
         })
       }
     });

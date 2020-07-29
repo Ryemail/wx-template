@@ -13,7 +13,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  background-color: bisque;
 }
 
 .left {
@@ -21,9 +20,17 @@
   align-items: center;
   position: absolute;
   left: 0;
-  padding: 0 20rpx;
   font-size: 14px;
-  background-color: blueviolet;
+}
+.left.capsule{
+  background-color: transparent;
+  border-radius: 60px;
+  margin-left: 20rpx;
+  padding: 0 10rpx;
+  color: #000;
+}
+.left.capsule::after{
+  border-radius: 32px;
 }
 
 .left .back-text{
