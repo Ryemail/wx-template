@@ -1,10 +1,15 @@
 <!--index.wxml-->
 <view class="container">
-	<ui-header title="{{ title }}" />
+	<header type="back" title="{{ title }}" />
 
 	<view class="flex-1">
 		<view wx:for="{{ 10 }}" wx:key="key">{{ item }}</view>
-		<van-button type="primary">按钮</van-button>
+		<!-- <van-button type="primary" bind:click="jump">按钮</van-button> -->
+
+		<!-- 授权 -->
+		<author custom-class="style-author">
+			授权
+		</author>
 	</view>
 
 </view>

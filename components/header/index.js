@@ -21,6 +21,10 @@ Component({
     type: {
       type: String,
       value: 'capsule' //back
+    },
+    back: {
+      type: Boolean,
+      value: true
     }
   },
 
@@ -34,10 +38,11 @@ Component({
     style: "",
     ios: false, // 是否ios
     titleStyle: "",
-    iconStyle: ''
+    iconStyle: '',
+    wrapStyle: "",
   },
   attached() {
-    const capsule = wx.getMenuButtonBoundingClientRect();
+
 
     wx.getSystemInfo({
       success: ({
@@ -45,10 +50,14 @@ Component({
         windowWidth,
         platform
       }) => {
+        const capsule = wx.getMenuButtonBoundingClientRect();
 
-        const height = statusBarHeight + capsule.height + (capsule.top - statusBarHeight) * 2,
+        const gap = capsule.top - statusBarHeight
+
+        const height = capsule.height + gap * 2 + statusBarHeight,
           left = windowWidth - capsule.right + capsule.width;
-          console.log(capsule,(capsule.bottom+capsule.top)-(statusBarHeight*2),height);
+
+        console.log(capsule, height, );
         this.setData({
           height,
           statusBarHeight,
@@ -56,7 +65,8 @@ Component({
           style: `height:${capsule.height}px;line-height:${capsule.height}px;`,
           titleStyle: `left:${left}px;right:${left}px;`,
           ios: platform === 'ios',
-          iconStyle: `width:${capsule.height}px;`
+          iconStyle: `width:${capsule.height}px;`,
+          wrapStyle: `height:${height}px;padding-top:${ capsule.top }px;background-color:${this.data.color}`
         })
       }
     });
@@ -67,8 +77,22 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 返回上一页
     actionBack() {
-      console.log('actionBack');
+
+      const page = getCurrentPages()
+
+      if (page.length === 1) return
+
+      wx.navigateBack({
+        delta: 1
+      })
+    },
+    // 去首页
+    actionHome() {
+      wx.reLaunch({
+        url: '/pages/index/index'
+      })
     }
   }
 })

@@ -12,7 +12,8 @@
   },
   
   "usingComponents": {
-    "ui-header": "/components/header/index",
+    "header": "/components/header/index",
+    "author": "/components/author/index",
     "van-button": "@vant/weapp/button/index",
     "van-icon": "@vant/weapp/icon/index"
   },

@@ -13,4 +13,10 @@ Page({
   onLoad: function () {
       console.log(__wxConfig)
   },
+
+  jump(){
+    wx.navigateTo({
+      url: '/pages/logs/logs',
+    })
+  }
 })
