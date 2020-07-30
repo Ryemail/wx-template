@@ -1,3 +1,8 @@
- <button type="primary" plain="true" class="custom-class">
- <slot></slot>
- </button>
+<button wx:if="{{ !isAuthor }}" open-type="{{ openType }}" bind:getuserinfo="getuserinfo" plain="true" class="author-button custom-class">
+    <slot></slot>
+</button>
+<block wx:else>
+    <view wx:if="{{ slot }}" class="custom-class">
+        <slot></slot>
+    </view>
+</block>

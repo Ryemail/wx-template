@@ -31,7 +31,7 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.12.0",
+	"libVersion": "2.11.3",
 	"appid": "wx6e13d4bb9df55c23",
 	"projectname": "wx-template",
 	"debugOptions": {

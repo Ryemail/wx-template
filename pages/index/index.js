@@ -11,7 +11,6 @@ Page({
   },
   
   onLoad: function () {
-      console.log(__wxConfig)
   },
 
   jump(){

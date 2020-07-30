@@ -1,98 +1,89 @@
 // components/header/index.js
 
+const { system } = getApp().globalData;
+
 Component({
-
-  options: {
-    addGlobalClass: true,
-    multipleSlots: true,
-  },
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    title: {
-      type: String,
-      value: ""
+    options: {
+        addGlobalClass: true,
+        multipleSlots: true
     },
-    color: {
-      type: String,
-      value: "#366FF5"
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        title: {
+            type: String,
+            value: ''
+        },
+        color: {
+            type: String,
+            value: '#366FF5'
+        },
+        type: {
+            type: String,
+            value: 'capsule' //back
+        },
+        back: {
+            type: Boolean,
+            value: true
+        }
     },
-    type: {
-      type: String,
-      value: 'capsule' //back
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        height: 0,
+        capsule: {},
+        statusBarHeight: 0,
+        style: '',
+        ios: false, // 是否ios
+        titleStyle: '',
+        iconStyle: '',
+        wrapStyle: ''
     },
-    back: {
-      type: Boolean,
-      value: true
-    }
-  },
+    attached() {
+        const { statusBarHeight, windowWidth, platform } = system;
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
-    height: 0,
-    capsule: {},
-    statusBarHeight: 0,
-    style: "",
-    ios: false, // 是否ios
-    titleStyle: "",
-    iconStyle: '',
-    wrapStyle: "",
-  },
-  attached() {
-
-
-    wx.getSystemInfo({
-      success: ({
-        statusBarHeight,
-        windowWidth,
-        platform
-      }) => {
         const capsule = wx.getMenuButtonBoundingClientRect();
 
-        const gap = capsule.top - statusBarHeight
+        const gap = capsule.top - statusBarHeight;
 
         const height = capsule.height + gap * 2 + statusBarHeight,
-          left = windowWidth - capsule.right + capsule.width;
+            left = windowWidth - capsule.right + capsule.width;
 
-        console.log(capsule, height, );
+        console.log(capsule, height);
         this.setData({
-          height,
-          statusBarHeight,
-          capsule,
-          style: `height:${capsule.height}px;line-height:${capsule.height}px;`,
-          titleStyle: `left:${left}px;right:${left}px;`,
-          ios: platform === 'ios',
-          iconStyle: `width:${capsule.height}px;`,
-          wrapStyle: `height:${height}px;padding-top:${ capsule.top }px;background-color:${this.data.color}`
-        })
-      }
-    });
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-    // 返回上一页
-    actionBack() {
-
-      const page = getCurrentPages()
-
-      if (page.length === 1) return
-
-      wx.navigateBack({
-        delta: 1
-      })
+            height,
+            statusBarHeight,
+            capsule,
+            style: `height:${capsule.height}px;line-height:${capsule.height}px;`,
+            titleStyle: `left:${left}px;right:${left}px;`,
+            ios: platform === 'ios',
+            iconStyle: `width:${capsule.height}px;`,
+            wrapStyle: `height:${height}px;padding-top:${capsule.top}px;background-color:${this.data.color}`
+        });
     },
-    // 去首页
-    actionHome() {
-      wx.reLaunch({
-        url: '/pages/index/index'
-      })
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        // 返回上一页
+        actionBack() {
+            const page = getCurrentPages();
+
+            if (page.length === 1) return;
+
+            wx.navigateBack({
+                delta: 1
+            });
+        },
+        // 去首页
+        actionHome() {
+            wx.reLaunch({
+                url: '/pages/index/index'
+            });
+        }
     }
-  }
-})
+});
