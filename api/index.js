@@ -1,8 +1,5 @@
-import { request } from '../utils'
+import { request } from '../utils/index';
 
-const {
-  post,
-  get
-} = request
+const { post, get } = request;
 
 console.log(get);

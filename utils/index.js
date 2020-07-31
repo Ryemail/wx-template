@@ -1,5 +1,4 @@
-import * as authorize from './authorize'
-import request from './request'
+import * as authorize from './authorize';
+import request from './request';
 
-
-export { authorize,request }
+export { authorize, request };
