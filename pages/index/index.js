@@ -1,4 +1,4 @@
-const { getSetting, getUserInfo } = require('../../utils/authorize');
+import { authorize } from '../../utils/index';
 
 //获取应用实例
 const app = getApp();
@@ -13,9 +13,10 @@ Page({
     },
 
     onLoad: function () {
-        getSetting('scope.userInfo')
+        authorize
+            .getSetting('scope.userInfo')
             .then((res) => {
-                return getUserInfo();
+                return authorize.getUserInfo();
             })
             .then((res) => {
                 console.log(res, '获取到的用户信息');

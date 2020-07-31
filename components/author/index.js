@@ -1,5 +1,4 @@
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast';
-import { openSetting } from '../../utils/authorize';
 
 const app = getApp();
 
@@ -31,11 +30,10 @@ Component({
     data: {
         isAuthor: isAuthor, // 是否授权
     },
-    observers: {
-        isAuthor: function (value) {
-            // 在 numberA 或者 numberB 被设置时，执行这个函数
-            console.log(value, 'isAuthor');
-        },
+    created() {
+        app.watch('isAuthor', (isAuthor) => {
+            this.setData({ isAuthor });
+        });
     },
 
     /**
@@ -55,6 +53,7 @@ Component({
                     onClose() {
                         app.globalData.userInfo = e.detail.userInfo;
                         app.globalData.isAuthor = true;
+
                         that.setData({ isAuthor: true });
                     },
                 });
