@@ -16,9 +16,8 @@ page {
     flex: 1;
 }
 
-.author-button {
+button.author-button {
     width: 90%;
     background-color: #366ff5;
-    color: #fff
+    color: #fff;
 }
-

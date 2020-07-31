@@ -1,6 +1,7 @@
 button.style-author {
     border: none;
     margin-top: 40rpx;
+    background-color: aquamarine;
 }
 button.style-author::after {
     border: 0;
