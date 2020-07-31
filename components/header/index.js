@@ -5,7 +5,7 @@ const { system } = getApp().globalData;
 Component({
     options: {
         addGlobalClass: true,
-        multipleSlots: true
+        multipleSlots: true,
     },
     /**
      * 组件的属性列表
@@ -13,20 +13,20 @@ Component({
     properties: {
         title: {
             type: String,
-            value: ''
+            value: '',
         },
         color: {
             type: String,
-            value: '#366FF5'
+            value: '#366FF5',
         },
         type: {
             type: String,
-            value: 'capsule' //back
+            value: 'capsule', //back
         },
         back: {
             type: Boolean,
-            value: true
-        }
+            value: true,
+        },
     },
 
     /**
@@ -40,7 +40,7 @@ Component({
         ios: false, // 是否ios
         titleStyle: '',
         iconStyle: '',
-        wrapStyle: ''
+        wrapStyle: '',
     },
     attached() {
         const { statusBarHeight, windowWidth, platform } = system;
@@ -52,7 +52,6 @@ Component({
         const height = capsule.height + gap * 2 + statusBarHeight,
             left = windowWidth - capsule.right + capsule.width;
 
-        console.log(capsule, height);
         this.setData({
             height,
             statusBarHeight,
@@ -61,7 +60,7 @@ Component({
             titleStyle: `left:${left}px;right:${left}px;`,
             ios: platform === 'ios',
             iconStyle: `width:${capsule.height}px;`,
-            wrapStyle: `height:${height}px;padding-top:${capsule.top}px;background-color:${this.data.color}`
+            wrapStyle: `height:${height}px;padding-top:${capsule.top}px;background-color:${this.data.color}`,
         });
     },
 
@@ -76,14 +75,14 @@ Component({
             if (page.length === 1) return;
 
             wx.navigateBack({
-                delta: 1
+                delta: 1,
             });
         },
         // 去首页
         actionHome() {
             wx.reLaunch({
-                url: '/pages/index/index'
+                url: '/pages/index/index',
             });
-        }
-    }
+        },
+    },
 });

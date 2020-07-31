@@ -1,6 +1,5 @@
-<!--logs.wxml-->
+<!-- logs.wxml -->
 <view class="container">
-	<ui-header type="back" title="日志" />
-
-  <view class="flex-1"> </view>
+    <header type="back" title="日志" />
+    <view class="flex-1"></view>
 </view>

@@ -2,7 +2,9 @@
     <slot></slot>
 </button>
 <block wx:else>
-    <view wx:if="{{ slot }}" class="custom-class">
+    <view wx:if="{{ isSlot }}" class="custom-class">
         <slot></slot>
     </view>
 </block>
+{{ isSlot }} {{ isAuthor }}
+<van-toast id="van-toast" />

@@ -1,6 +1,8 @@
 <view class="container">
-		<header type="back" title="{{ title }}" />
-		<view class="flex-1">
-				<author custom-class="style-author">授权</author>
-		</view>
+    <header type="back" title="{{ title }}" />
+    <view class="flex-1">
+        <author custom-class="style-author" is-slot="{{ true }}">
+            <view bind:tap="jump">log</view>
+        </author>
+    </view>
 </view>
