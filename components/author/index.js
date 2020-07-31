@@ -22,9 +22,6 @@ Component({
         isSlot: {
             type: Boolean,
             value: false,
-            observer(val) {
-                console.log(val);
-            },
         },
     },
 
@@ -39,12 +36,6 @@ Component({
             // 在 numberA 或者 numberB 被设置时，执行这个函数
             console.log(value, 'isAuthor');
         },
-    },
-    created() {
-        console.log(this.data, 'dd');
-        // app.watch('isAuthor', (isAuthor) => {
-        //     this.setData({ isAuthor });
-        // });
     },
 
     /**
